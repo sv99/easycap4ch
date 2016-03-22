@@ -49,6 +49,7 @@
 #include <sound/pcm.h>
 #include <sound/pcm_params.h>
 #include <sound/initval.h>
+#include <stdbool.h>
 
 #ifndef GITVERSION
 #define GITVERSION ""
@@ -56,26 +57,26 @@
 
 #define SMI2021_DRIVER_VERSION "0.1"GITVERSION
 
-#define SMI2021_ISOC_TRANSFERS	16
-#define SMI2021_ISOC_PACKETS	10
-#define SMI2021_ISOC_EP		0x82
+#define SMI2021_ISOC_TRANSFERS  16
+#define SMI2021_ISOC_PACKETS    10
+#define SMI2021_ISOC_EP        	0x82
 
 /* General USB control setup */
-#define SMI2021_USB_REQUEST	0x01
-#define SMI2021_USB_INDEX	0x00
-#define SMI2021_USB_SNDPIPE	0x00
-#define SMI2021_USB_RCVPIPE	0x80
+#define SMI2021_USB_REQUEST    	0x01
+#define SMI2021_USB_INDEX    	0x00
+#define SMI2021_USB_SNDPIPE    	0x00
+#define SMI2021_USB_RCVPIPE    	0x80
 
 /* General video constants */
-#define SMI2021_BYTES_PER_LINE	1440
-#define SMI2021_PAL_LINES	576
+#define SMI2021_BYTES_PER_LINE  1440
+#define SMI2021_PAL_LINES    	576
 #define SMI2021_NTSC_LINES	484
 
 /* Timing Referance Codes, see saa7113 datasheet */
-#define SMI2021_TRC_EAV		0x10
-#define SMI2021_TRC_VBI		0x20
-#define SMI2021_TRC_FIELD_2	0x40
-#define SMI2021_TRC		0x80
+#define SMI2021_TRC_EAV        	0x10
+#define SMI2021_TRC_VBI        	0x20
+#define SMI2021_TRC_FIELD_2    	0x40
+#define SMI2021_TRC        	0x80
 
 #ifdef DEBUG
 #define smi2021_dbg(fmt, args...)		\
@@ -153,6 +154,7 @@ struct smi2021_isoc_ctl {
 struct smi2021 {
 	struct device			*dev;
 	struct usb_device		*udev;
+
 	struct i2c_adapter		i2c_adap;
 	struct i2c_client		i2c_client;
 	struct v4l2_ctrl_handler	ctrl_handler;

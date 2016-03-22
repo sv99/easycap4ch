@@ -28,6 +28,7 @@
  *
  */
 
+#include <string.h>
 #include "smi2021.h"
 
 #define VENDOR_ID 0x1c88

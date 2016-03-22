@@ -60,3 +60,7 @@ https://github.com/Manouchehri/smi2021
 https://github.com/jonjonarnearne/smi2021
 
 https://github.com/mastervolkov/smi2021
+
+## CLion for refactoring
+
+Some problems with EaseCAP002 - error copy usb buffer data.
